@@ -12,9 +12,9 @@ app.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=587,
     MAIL_USE_TLS=True,
-    MAIL_USERNAME='girijalasravani09@gmail.com',
-    MAIL_PASSWORD='vyiz zfzz tlng cydr',
-    MAIL_DEFAULT_SENDER='girijalasravani09@gmail.com'
+    MAIL_USERNAME=os.environ.get('MAIL_USERNAME'),
+    MAIL_PASSWORD=os.environ.get('MAIL_PASSWORD'),
+    MAIL_DEFAULT_SENDER=os.environ.get('MAIL_DEFAULT_SENDER')
 )
 
 mail = Mail(app)
@@ -74,4 +74,7 @@ def send_email():
     return redirect(url_for('home'))
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    # Get port from environment variable for Render deployment
+    port = int(os.environ.get('PORT', 5000))
+    # Run the app on 0.0.0.0 to accept external connections
+    app.run(host='0.0.0.0', port=port, debug=False) 
