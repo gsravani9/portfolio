@@ -225,18 +225,25 @@
     <!-- Replace with your Access Key -->
     <input type="hidden" name="access_key" value="faea2327-180d-441b-83a1-6b80e3a3f695">
 
-    <!-- Form Inputs -->
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Your Email" required>
-    <textarea name="message" placeholder="Your Message" required></textarea>
+     <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-    <!-- Honeypot Spam Protection (optional, based on Web3Forms' requirements) -->
-    <input type="checkbox" name="botcheck" class="hidden" style="display: none;"> <!-- Consider removing if unnecessary -->
+                    <div class="form-group">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
 
-    <!-- Redirect after successful submission -->
-    <input type="hidden" name="redirect" value="https://yourwebsite.com/thank-you.html">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
 
-    <button type="submit">Submit Form</button>
+                    <div class="form-group">
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+
+                    <button type="submit">Send Message</button>
   </form>
 </section>
 
@@ -254,7 +261,7 @@
   <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
   <!-- Add this right after your footer section, before closing body tag -->
-  <div id="emailModal" class="modal">
+<!--   <div id="emailModal" class="modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
       <h2 class="heading">Quick <span>Message</span></h2>
@@ -268,7 +275,7 @@
         <input type="hidden" name="phone" value="Not Provided">
         <button type="submit" class="btn">Send</button>
       </form>
-    </div>
+    </div> -->
   </div>
 </body>
 </html>
